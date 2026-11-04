@@ -307,6 +307,12 @@ html.ytm-theme-light ytmusic-search-box input {
   background: none !important;
 }
 
+/* The expanded search box ships a heavy three-layer Material shadow; the
+   border and tint above are enough on the light page */
+html.ytm-theme-light ytmusic-search-box .search-container {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06) !important;
+}
+
 html.ytm-theme-light ytmusic-search-box,
 html.ytm-theme-light ytmusic-search-suggestion,
 html.ytm-theme-light .ytmusic-search-suggestion,
@@ -856,6 +862,30 @@ html.ytm-theme-light ytmusic-player-page .ytp- .ytp-button {
   fill: #ffffff !important;
 }
 
+/* The collapsed mini video's maximize/fullscreen buttons sit on the video
+   inside #song-media-window, so they need the same white treatment */
+html.ytm-theme-light ytmusic-player #song-media-window yt-icon,
+html.ytm-theme-light ytmusic-player #song-media-window yt-icon *,
+html.ytm-theme-light ytmusic-player #song-media-window button {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* The video description's inner spans ship 70%-white for the dark player and
+   vanish on the light page; the host string is already dark */
+html.ytm-theme-light ytmusic-description-shelf-renderer span,
+html.ytm-theme-light ytmusic-description-shelf-renderer a.yt-simple-endpoint span {
+  color: #374151 !important;
+}
+
+/* Signed-in home shelf header: the username strapline above "Listen again"
+   ships white for the dark theme. The title keeps its own dark rule. */
+html.ytm-theme-light ytmusic-shelf-renderer .strapline,
+html.ytm-theme-light ytmusic-carousel-shelf-basic-header-renderer
+  yt-formatted-string:not(.title) {
+  color: #6b7280 !important;
+}
+
 /* The "Saved to liked music" toast. YouTube paints it black in both themes, so
    it keeps light text. The action button is left alone to stay blue. */
 html.ytm-theme-light tp-yt-paper-toast,
@@ -870,6 +900,134 @@ html.ytm-theme-light tp-yt-paper-toast path {
 html.ytm-theme-light ytmusic-custom-index-column-renderer yt-formatted-string,
 html.ytm-theme-light ytmusic-custom-index-column-renderer {
   color: #111827 !important;
+}
+
+/* Explicit-content badge: ships 70%-white, invisible on the light page */
+html.ytm-theme-light ytmusic-inline-badge-renderer yt-icon,
+html.ytm-theme-light ytmusic-inline-badge-renderer yt-icon path {
+  color: #9ca3af !important;
+  fill: #9ca3af !important;
+}
+
+/* The player region behind square artwork ships a mid-grey for the dark
+   theme; it peeks out around the art on the watch page */
+html.ytm-theme-light ytmusic-player-page ytmusic-player {
+  background-color: #f9fafb !important;
+}
+
+/* 3i. Settings dialog */
+/* The selected category ships the dark-theme grey with dark text on top */
+html.ytm-theme-light ytmusic-settings-page tp-yt-paper-item.category-menu-item[selected],
+html.ytm-theme-light ytmusic-settings-page tp-yt-paper-item.category-menu-item.iron-selected {
+  background-color: #d1d5db !important;
+  color: #111827 !important;
+}
+
+/* Setting descriptions ship near-white summary text */
+html.ytm-theme-light ytmusic-settings-page yt-formatted-string.summary {
+  color: #6b7280 !important;
+}
+
+/* 3j. Comments: the panel is built on YouTube's ytd-comment-view-model
+   components (under a ytd-comment-thread-renderer host, not a ytmusic one),
+   which ship white dark-theme text that vanishes on the light page. Force
+   dark, then let the toolbar (Reply, like counts) read grey. */
+html.ytm-theme-light ytd-comment-thread-renderer,
+html.ytm-theme-light ytd-comment-thread-renderer * {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytd-comment-thread-renderer #toolbar,
+html.ytm-theme-light ytd-comment-thread-renderer #toolbar *,
+html.ytm-theme-light ytd-comment-thread-renderer #published-time-text,
+html.ytm-theme-light ytd-comment-thread-renderer #published-time-text * {
+  color: #6b7280 !important;
+}
+
+/* 3h. Search page: YT Music / Songs tabs and the top-result card */
+/* The tabs ship white text and a white underline, invisible on the light page */
+html.ytm-theme-light ytmusic-tabs .tab-container {
+  border-bottom-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html.ytm-theme-light ytmusic-tabs yt-formatted-string.tab {
+  color: #6b7280 !important;
+}
+
+html.ytm-theme-light ytmusic-tabs yt-formatted-string.tab.selected {
+  color: #111827 !important;
+  border-bottom-color: #111827 !important;
+}
+
+/* The top-result card keeps the blurred ambient artwork behind it. Dark mode
+   fades it into black via the ::before scrim; we fade it into white instead,
+   so the artwork's colours stay visible and the card melts into the page.
+   The #background selector is pinned to its class so the paper-ripple inside
+   the card is not touched. */
+html.ytm-theme-light ytmusic-card-shelf-renderer #background.immersive-background::before {
+  background: linear-gradient(rgba(255, 255, 255, 0.1), #ffffff 86.67%) !important;
+}
+
+html.ytm-theme-light ytmusic-card-shelf-renderer .card-container {
+  background-color: #ffffff !important;
+  border-radius: 12px !important;
+}
+
+/* Titles and undercard rows: YouTube ships them white for the dark scrim */
+html.ytm-theme-light ytmusic-card-shelf-renderer yt-formatted-string {
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-card-shelf-renderer .metadata-container,
+html.ytm-theme-light ytmusic-card-shelf-renderer .undercards-container-text,
+html.ytm-theme-light ytmusic-card-shelf-renderer ytmusic-responsive-list-item-renderer .secondary-flex-columns,
+html.ytm-theme-light ytmusic-card-shelf-renderer ytmusic-responsive-list-item-renderer .subtitle,
+html.ytm-theme-light ytmusic-card-shelf-renderer ytmusic-responsive-list-item-renderer .flex-column {
+  color: #6b7280 !important;
+}
+
+/* Card menu (⋮) and the shifter chevron sit on the washed photo too */
+html.ytm-theme-light ytmusic-card-shelf-renderer yt-icon,
+html.ytm-theme-light ytmusic-card-shelf-renderer yt-icon path {
+  color: #111827 !important;
+  fill: #111827 !important;
+}
+
+/* After the rule above: the play overlay on row thumbnails sits on album art */
+html.ytm-theme-light ytmusic-card-shelf-renderer
+  ytmusic-responsive-list-item-renderer ytmusic-item-thumbnail-overlay-renderer yt-icon,
+html.ytm-theme-light ytmusic-card-shelf-renderer
+  ytmusic-responsive-list-item-renderer ytmusic-item-thumbnail-overlay-renderer yt-icon path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Shuffle: black fill with white label and icon, matching the Sign in button.
+   It is the only Filled shape in the card's actions. */
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextFilled {
+  background-color: #030712 !important;
+  color: #ffffff !important;
+}
+
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextFilled svg,
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextFilled path {
+  fill: #ffffff !important;
+}
+
+/* Mix: dark label and icon with a visible border. It is the Outline shape. */
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextOutline {
+  background-color: transparent !important;
+  border: 1px solid #d1d5db !important;
+  color: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextOutline svg,
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextOutline path {
+  fill: #111827 !important;
+}
+
+html.ytm-theme-light ytmusic-card-shelf-renderer button.ytSpecButtonShapeNextOutline:hover {
+  background-color: rgba(0, 0, 0, 0.05) !important;
 }
 
 /* 4. Fallback layer */
