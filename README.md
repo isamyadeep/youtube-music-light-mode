@@ -21,7 +21,7 @@ Works on **Microsoft Edge**, **Firefox**, and **Google Chrome**.
 ## Installation
 
 ### Microsoft Edge
-Install directly from the **Edge Add-ons Store** *(link coming soon upon publication)*.
+Install directly from the [**Edge Add-ons Store**](https://microsoftedge.microsoft.com/addons/detail/knob-%E2%80%93-light-mode-for-you/jfdfdhdmohdafabaacejegebfgmpapfp).
 
 ---
 
@@ -34,7 +34,7 @@ Install directly from the **Firefox Add-ons Marketplace** *(link coming soon upo
 
 Chrome users can install manually from a downloadable `.zip` or cloned repository:
 
-1. Download the latest `knob-<version>.zip` from the [Releases page](https://github.com/isamyadeep/knob/releases), or clone this repository.
+1. Download the latest `knob-<version>.zip` from the [Releases page](https://github.com/isamyadeep/youtube-music-light-mode/releases), or clone this repository.
 2. Unzip the archive into a permanent directory on your computer (e.g., `~/knob-extension`).
 3. Open `chrome://extensions` in the address bar.
 4. Enable **Developer mode** using the toggle switch in the top-right corner.
